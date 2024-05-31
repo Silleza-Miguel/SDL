@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\FloorView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\HomeView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\MapView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\RoomNav\CTFloor1.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\RoomNav\CTFloor2.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\RoomNav\CTFloor3.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\RoomNav\CTFloor4.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\RoomNav\CTFloor5.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\RoomNav\CTFloor6.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\RoomNav\CTFloor7.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\RoomNav\CTFloor8.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\RoomNav\OZFloor1.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\RoomNav\OZFloor2.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\RoomNav\OZFloor3.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\RoomNav\OZFloor4.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\RoomNav\STFloor1.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\RoomNav\STFloor2.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\RoomNav\STFloor3.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\RoomNav\STFloor4.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\VideoView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\FloorView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\HomeView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MapView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\RoomNav\CTFloor1.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\RoomNav\CTFloor2.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\RoomNav\CTFloor3.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\RoomNav\CTFloor4.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\RoomNav\CTFloor5.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\RoomNav\CTFloor6.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\RoomNav\CTFloor7.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\RoomNav\CTFloor8.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\RoomNav\OZFloor1.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\RoomNav\OZFloor2.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\RoomNav\OZFloor3.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\RoomNav\OZFloor4.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\RoomNav\STFloor1.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\RoomNav\STFloor2.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\RoomNav\STFloor3.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\RoomNav\STFloor4.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\VideoView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>
