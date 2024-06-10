@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="WpfApp4.Views.HomeView"
+<UserControl x:Class="WpfApp4.Views.HomeView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -18,6 +18,7 @@
     <UserControl.Resources>
         <convert:SubtractionConverter x:Key="SubtractionConverter"/>
         <convert:IsFocusedConverted x:Key="IsFocusedConverter"/>
+        <convert:BuildingBGConverter x:Key="BuildingBGConverter"/>
     </UserControl.Resources>
 
     <StackPanel Orientation="Vertical" Focusable="True" x:Name="frame">
@@ -71,6 +72,7 @@
                                 <MultiBinding Converter="{StaticResource IsFocusedConverter}">
                                     <Binding ElementName="tb" Path="IsFocused"/>
                                     <Binding ElementName="searchresult" Path="IsFocused"/>
+                                    <Binding ElementName="pop" Path="IsFocused"/>
                                 </MultiBinding>
                             </DataTrigger.Binding>
                             <Setter Property="IsOpen" Value="True"/>
@@ -78,45 +80,36 @@
                     </Style.Triggers>
                 </Style>
             </Popup.Style>
-
+            
             <ui:ListView ItemsSource="{Binding RoomQuery}" x:Name="searchbar">
-                <ui:ListView.Resources>
+                    <ui:ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ui:Button Command="{Binding DataContext.VideoSearchbarNavigateCommand, RelativeSource={RelativeSource AncestorType={x:Type ui:ListView}}}"
+                                       CommandParameter="{Binding }"
+                                       HorizontalAlignment="Stretch"
+                                       HorizontalContentAlignment="Stretch">
 
-                </ui:ListView.Resources>
+                                <StackPanel Orientation="Vertical"
+                                            HorizontalAlignment="Left">
 
-                <ui:ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ui:Button Command="{Binding DataContext.VideoSearchbarNavigateCommand, RelativeSource={RelativeSource AncestorType={x:Type ui:ListView}}}"
-                       CommandParameter="{Binding }"
-                       HorizontalAlignment="Stretch"
-                       HorizontalContentAlignment="Stretch">
+                                    <TextBlock Text="{Binding RoomName}"
+                                               Width="Auto"
+                                               TextAlignment="Left"/>
 
-                            <StackPanel Orientation="Vertical"
-                            HorizontalAlignment="Left">
-
-                                <TextBlock Text="{Binding RoomName}"
-                               Width="Auto"
-                               TextAlignment="Left"/>
-
-                                <TextBlock TextAlignment="Left">
-                                    <TextBlock.Text>
-                                        <MultiBinding StringFormat="{}Floor {0}, {1}">
-                                            <Binding Path="RoomFloor" />
-                                            <Binding Path="RoomBuildingName" />
-                                        </MultiBinding>
-                                    </TextBlock.Text>
-                                </TextBlock>
-
-
-                            </StackPanel>
-
-                        </ui:Button>
-
-                    </DataTemplate>
-
-                </ui:ListView.ItemTemplate>
-
-            </ui:ListView>
+                                    <TextBlock TextAlignment="Left">
+                                        <TextBlock.Text>
+                                            <MultiBinding StringFormat="{}Floor {0}, {1}">
+                                                <Binding Path="RoomFloor" />
+                                                <Binding Path="RoomBuildingName" />
+                                            </MultiBinding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </StackPanel>
+                            </ui:Button>
+                        </DataTemplate>
+                    </ui:ListView.ItemTemplate>
+                </ui:ListView>
+            
         </Popup>
 
         <!--KEYBOARD-->
@@ -124,7 +117,9 @@
                PlacementTarget="{Binding ElementName=frame}"
                Width="{Binding RelativeSource={RelativeSource Self}, Path=PlacementTarget.ActualWidth}"
                Height="500"
-               Placement="Relative">
+               Placement="Relative"
+               IsHitTestVisible="False"
+               Focusable="True">
 
             <Popup.VerticalOffset>
                 <MultiBinding Converter="{StaticResource SubtractionConverter}">
@@ -162,8 +157,8 @@
                 </Style>
             </Popup.Style>
 
-            <Border BorderThickness="1" BorderBrush="Black">
-                <keyboard:ShiftableKeyboard/>
+            <Border BorderThickness="0">
+                <keyboard:ShiftableKeyboard x:Name="keyboard"/>
             </Border>
         </Popup>
         
@@ -340,12 +335,11 @@
                             </ItemsControl.ItemsPanel>
 
                             <ItemsControl.ItemTemplate>
-
                                 <DataTemplate>
-
                                     <Grid>
                                         <!-- Button and overlay container -->
                                         <Grid>
+                                            
                                             <!-- Blue overlay -->
                                             <Rectangle Opacity="0.9"
                                                        RadiusX="10"
@@ -367,27 +361,28 @@
                                                 </Rectangle.Style>
                                             </Rectangle>
 
+                                            <!-- Image Button -->
                                             <ui:Button Margin="0,0,25,25"
                                                        Height="280"
                                                        Width="285"
-                                                       Foreground="#FFFFFF"
                                                        CornerRadius="10"
+                                                       Foreground="White"
                                                        HorizontalContentAlignment="Center"
                                                        VerticalContentAlignment="Center"
                                                        Command="{Binding DataContext.FloorNavigateCommand,RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
                                                        CommandParameter="{Binding}">
 
-                                                 <!--Image BG--> 
+                                                <!-- Image BG --> 
                                                 <ui:Button.Background>
                                                     <ImageBrush ImageSource="{Binding BuildingImage}" Stretch="Fill" Opacity="0.3"/>
                                                 </ui:Button.Background>
-
+                                                
+                                                <!-- Building Title -->
                                                 <TextBlock Text="{Binding BuildingName}"
                                                            HorizontalAlignment="Center"
                                                            VerticalAlignment="Center"
                                                            Foreground="White"
                                                            FontSize="20">
-                                                    
                                                 </TextBlock>
                                             </ui:Button>
                                         </Grid>
